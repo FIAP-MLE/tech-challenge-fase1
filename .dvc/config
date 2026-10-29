@@ -1,4 +1,5 @@
 [core]
     remote = origin
 ['remote "origin"']
-    url = https://dagshub.com/fluiz/fiap_mle_challenge_1.git
+    url = s3://dvc
+    endpointurl = https://dagshub.com/fluiz/fiap_mle_challenge_1.s3
