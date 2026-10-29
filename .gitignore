@@ -401,5 +401,66 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,intellij+all,pycharm+all,python,jupyternotebooks
+# ==============================================================================
+# MACHINE LEARNING / DATA SCIENCE SPECIFIC
+# ==============================================================================
+
+# Data directories (Never track raw or processed datasets)
+data/
+data/**/*
+*.csv
+*.parquet
+*.tsv
+*.jsonl
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.xlsx
+
+# Model checkpoints and weights (Large binaries)
+models/
+artifacts/
+checkpoints/
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+*.pb
+*.tflite
+*.ckpt
+*.joblib
+*.weights
+
+# Experiment tracking & logs
+lightning_logs/
+wandb/
+.wandb/
+mlruns/
+tensorboard/
+
+# Jupyter Notebook checkpoints and formatting
+.virtual_documents/
+
+# ==============================================================================
+# PYTHON STANDARD
+# ==============================================================================
+# Environments
+conda-env/
+
+# ==============================================================================
+# IDE, OS, & CONFIG SECRETS
+# ==============================================================================
+# Credentials & Secrets
+.env.*
+secrets.*
+*.pem
+*.key
+
+# IDEs
+.vscode/
+.idea/
+.cursor/
+
 
