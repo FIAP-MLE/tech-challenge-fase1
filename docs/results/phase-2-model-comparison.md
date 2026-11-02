@@ -39,4 +39,4 @@ Pipeline([StandardScaler(), MLPClassifier(hidden_layer_sizes=(64, 32), activatio
 
 **Selected model: Random Forest.** It achieved the strongest cross-validated F1 under the predefined selection rule, with ROC AUC and held-out F1 used as tie-breakers. The serialized champion is `models/telco_random_forest_champion.joblib`.
 
-The two non-champion model artifacts are also persisted under `models/` for reproducibility and future comparison.
+The MVP and the non-champion model artifacts are also persisted under `models/` for reproducibility and future comparison.
