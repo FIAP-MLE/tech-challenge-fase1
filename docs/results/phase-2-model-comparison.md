@@ -12,7 +12,7 @@ F1 score is the primary selection metric because the churn target is imbalanced 
 - Test rows: 1409
 - Prediction-time numeric features: 35
 - Cross-validation: StratifiedKFold, 5 folds, shuffle=True, random_state=42
-- Feature exclusions: CustomerID, Count, Country, State, target (Churn Score is removed during Step 1 preprocessing)
+- Feature exclusions: CustomerID, Count, Country, State, target (derived churn fields are removed during Step 1 preprocessing)
 
 ## Model parameters
 

@@ -2,6 +2,7 @@
 Translate raw Telco features into the champion model's encoded feature vector.
 """
 
+from functools import lru_cache
 from pathlib import Path
 
 import pandas as pd
@@ -73,8 +74,9 @@ ONE_HOT_COLUMNS = {
 }
 
 
+@lru_cache(maxsize=1)
 def _city_frequencies() -> pd.Series:
-    """Build the same unsupervised city-frequency mapping used during training."""
+    """Build and cache the unsupervised city-frequency mapping used in training."""
     if not RAW_DATA_PATH.exists():
         raise FileNotFoundError(f"Training data not found: {RAW_DATA_PATH}")
     return pd.read_excel(RAW_DATA_PATH)["City"].value_counts(normalize=True)
