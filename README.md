@@ -134,7 +134,8 @@ pytest
 ```
 
 The tests cover the public routes, request/response validation, raw feature
-encoding, unknown-city validation, and model artifact loading.
+encoding, notebook preprocessing outputs, unknown-city validation, and model
+artifact loading.
 
 ## Champion model card
 
@@ -187,7 +188,10 @@ The latest recorded comparison is:
 
 The Random Forest was selected over both the MVP baseline and the MLP because
 it achieved the strongest cross-validated F1 and held-out F1 under the
-predefined selection rule.
+predefined selection rule. On the held-out test set, its accuracy was **77.71%
+(1,095 of 1,409 customers correctly classified)**. Accuracy is included for
+context; F1 remains the primary selection metric because the churn classes are
+imbalanced.
 
 ### Limitations and risks
 
