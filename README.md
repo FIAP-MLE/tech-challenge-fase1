@@ -65,9 +65,11 @@ source .venv/bin/activate
 uvicorn src.main:app --reload
 ```
 
-The interactive documentation is available at
-<http://127.0.0.1:8000/docs>. Health and metadata endpoints are available at
-`/health` and `/`.
+The interactive API documentation is available at
+<http://127.0.0.1:8000/docs>. Open this Swagger UI page to inspect the request
+schema and use **Try it out** to submit synthetic customer requests directly
+from the browser. Health and metadata endpoints are available at `/health`
+and `/`.
 
 The prediction endpoint is `POST /predict`. It accepts the original dataset
 fields; callers do not need to know about one-hot or frequency encoding. For
