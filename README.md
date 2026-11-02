@@ -6,6 +6,9 @@ and a FastAPI prediction service.
 
 Repository: <https://github.com/FIAP-MLE/tech-challenge-fase1>
 
+The challenge objectives, requirements, and deliverables are defined in the
+main project brief: [`docs/12MLET - Tech Challenge Fase 1.pdf`](docs/12MLET%20-%20Tech%20Challenge%20Fase%201.pdf).
+
 ## Project layout
 
 - `data/` - source workbook and generated encoded data, versioned with DVC.
@@ -17,6 +20,8 @@ Repository: <https://github.com/FIAP-MLE/tech-challenge-fase1>
 - `src/` - FastAPI application and raw-to-encoded request translation.
 - `tests/` - API and preprocessing regression tests.
 - `docs/results/` - experiment results and model comparison.
+- `docs/12MLET - Tech Challenge Fase 1.pdf` - challenge requirements and
+  project brief.
 
 ## Installation
 
