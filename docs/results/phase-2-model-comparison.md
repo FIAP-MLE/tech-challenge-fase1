@@ -10,9 +10,9 @@ F1 score is the primary selection metric because the churn target is imbalanced 
 
 - Training rows: 5634
 - Test rows: 1409
-- Numeric features: 36
+- Prediction-time numeric features: 35
 - Cross-validation: StratifiedKFold, 5 folds, shuffle=True, random_state=42
-- Feature exclusions: CustomerID, Count, Country, State, target
+- Feature exclusions: CustomerID, Count, Country, State, target (Churn Score is removed during Step 1 preprocessing)
 
 ## Model parameters
 
@@ -32,8 +32,8 @@ Pipeline([StandardScaler(), MLPClassifier(hidden_layer_sizes=(64, 32), activatio
 
 | Model | CV F1 mean | CV F1 std | CV ROC AUC mean | Test F1 | Test ROC AUC | Test balanced accuracy | Test precision | Test recall |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Random Forest | 0.8720 | 0.0216 | 0.9770 | 0.8571 | 0.9769 | 0.9218 | 0.7945 | 0.9305 |
-| MLPClassifier | 0.8322 | 0.0128 | 0.9705 | 0.8331 | 0.9723 | 0.8834 | 0.8457 | 0.8209 |
+| Random Forest | 0.6466 | 0.0263 | 0.8575 | 0.6315 | 0.8465 | 0.7587 | 0.5628 | 0.7193 |
+| MLPClassifier | 0.6095 | 0.0398 | 0.8493 | 0.5616 | 0.8411 | 0.6993 | 0.6404 | 0.5000 |
 
 ## Champion selection
 
