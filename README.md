@@ -43,6 +43,12 @@ This restores `data/Telco_customer_churn.xlsx`,
 may be required for private remote access. The API requires
 `models/telco_random_forest_champion.joblib`.
 
+If the DVC remote cannot be reached, place the Telco workbook at
+`data/Telco_customer_churn.xlsx` and run the notebooks in order. Step 1
+generates `data/telco_full_encoded.csv`; Step 2 trains the models and writes
+the artifacts under `models/`, including the champion model required by the
+API.
+
 ## Running the notebooks
 
 From the repository root:
@@ -137,7 +143,8 @@ encoding, unknown-city validation, and model artifact loading.
 - **Model:** `RandomForestClassifier`
 - **Artifact:** `models/telco_random_forest_champion.joblib`
 - **Task:** binary classification of customer churn
-- **Selection:** champion chosen against a scaled `MLPClassifier` using
+- **Selection:** champion chosen against the Step 1 Logistic Regression MVP
+  baseline, a scaled `MLPClassifier`, and the Random Forest candidate using
   stratified five-fold cross-validation with F1 as the primary metric
 - **Random state:** 42
 - **Parameters:** 300 trees, `min_samples_leaf=2`,
@@ -170,20 +177,17 @@ five-fold stratified cross-validation applied to the training partition.
 F1 is the primary metric because the target is imbalanced and both missed
 churners and unnecessary interventions matter.
 
-The latest recorded results are:
+The latest recorded comparison is:
 
-| Metric | Random Forest |
-|---|---:|
-| Cross-validation F1 mean | 0.6466 |
-| Cross-validation F1 standard deviation | 0.0263 |
-| Test F1 | 0.6315 |
-| Test ROC AUC | 0.8465 |
-| Test balanced accuracy | 0.7587 |
-| Test precision | 0.5628 |
-| Test recall | 0.7193 |
+| Model | Role | CV F1 mean | CV F1 std | Test F1 | Test ROC AUC |
+|---|---|---:|---:|---:|---:|
+| Logistic Regression | MVP baseline | 0.5367 | 0.0108 | 0.5659 | 0.8309 |
+| Random Forest | Candidate/champion | 0.6466 | 0.0263 | 0.6315 | 0.8465 |
+| MLPClassifier | Candidate | 0.6095 | 0.0398 | 0.5616 | 0.8411 |
 
-The Random Forest was selected over the MLP because it achieved the stronger
-cross-validated F1 and held-out F1 under the predefined selection rule.
+The Random Forest was selected over both the MVP baseline and the MLP because
+it achieved the strongest cross-validated F1 and held-out F1 under the
+predefined selection rule.
 
 ### Limitations and risks
 
