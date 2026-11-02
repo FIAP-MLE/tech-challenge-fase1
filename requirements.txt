@@ -19,6 +19,7 @@ evidently>=0.7.23
 # Additional utilities
 joblib>=1.6.0
 requests>=2.34.2
+uvicorn==0.54.0
 
 # Jupyter
 jupyter>=1.1.1
@@ -29,3 +30,6 @@ fastapi>=0.162.0
 
 # Fairlearn
 fairlearn==0.15.0
+
+# Logging
+python-json-logger==4.2.0
