@@ -1,17 +1,19 @@
-"""
-Information and health routers
-"""
+"""Information and health endpoints."""
+
 from fastapi import APIRouter
+
 from src.core import API_VERSION, ENVIRONMENT
 from src.model_loader import MODEL_LOADED
 
+
 router = APIRouter(tags=["Info"])
+
 
 @router.get("/")
 def home():
-    """API Information"""
+    """Return API metadata and the raw fields accepted by ``/predict``."""
     return {
-        "api": "Telco Chrun Predictor",
+        "api": "Telco Churn Predictor",
         "version": API_VERSION,
         "environment": ENVIRONMENT,
         "model_loaded": MODEL_LOADED,
@@ -49,9 +51,10 @@ def home():
         ],
     }
 
+
 @router.get("/health")
 def health():
-    """Health check for monitoring purposes"""
+    """Return the service readiness status."""
     return {
         "status": "healthy" if MODEL_LOADED else "degraded",
         "model_loaded": MODEL_LOADED,

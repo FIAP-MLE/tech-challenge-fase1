@@ -33,7 +33,7 @@ def predict(request: ChurnPredictionRequest) -> ChurnPredictionResponse:
     except ValueError as exc:
         logger.warning("prediction_validation_failed", extra={"error": str(exc)})
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail=str(exc),
         ) from exc
     except Exception as exc:

@@ -128,10 +128,22 @@ class ChurnPredictionRequest(BaseModel):
 class ChurnPredictionResponse(BaseModel):
     """Prediction returned by the champion model."""
 
-    churn_prediction: int = Field(ge=0, le=1)
-    churn_label: str
-    churn_probability: float = Field(ge=0, le=1)
-    model: str
+    churn_prediction: int = Field(
+        ge=0,
+        le=1,
+        description="Binary prediction: 1 for churn and 0 for no churn.",
+    )
+    churn_label: str = Field(
+        description="Human-readable version of the binary prediction.",
+    )
+    churn_probability: float = Field(
+        ge=0,
+        le=1,
+        description="Predicted probability that the customer will churn.",
+    )
+    model: str = Field(
+        description="Identifier of the model artifact that produced the result.",
+    )
 
 
 # Backward-compatible alias for the original misspelling.
